@@ -1,3 +1,12 @@
+let login = prompt(`Ingrese su nombre para continuar`)
+let usuario = ""
+
+while (login != " " && login != "") {
+    usuario += login + " "
+    login = prompt (`Ingrese su apellido para continuar y de ENTER al finalizar`)
+}
+alert(`Bienvenido a nuestra tienda ${usuario}`)
+
 alert("Elija las opciones adecuadas para su PC")
 
     let procesador = prompt(`Elija una opción:
@@ -15,12 +24,8 @@ alert("Elija las opciones adecuadas para su PC")
             alert("Elegiste un procesador i7")
             break
 
-        case "3":
-            alert("Elegiste un procesador i9")
-            break
-
         default:
-            alert("Opción no disponible")
+            alert("Elegiste un procesador i9")
             break
     }
 
@@ -39,12 +44,8 @@ alert("Elija las opciones adecuadas para su PC")
             alert("Elegiste 16 RAM de memoria")
             break
 
-        case "3":
-            alert("Elegiste 32 RAM de memoria")
-            break
-
         default:
-            alert("Opción no disponible")
+            alert("Elegiste 32 RAM de memoria")
             break
     }
 
@@ -56,8 +57,40 @@ alert("Elija las opciones adecuadas para su PC")
 
     if (disco == 1) {
         alert("Elegiste 500 GB de almacenamiento")
-    } else if (disco == 2) {
-        alert("Elegiste 1 TB de almacenamiento")
     } else {
-        alert("Opción invalida")
+        alert("Elegiste 1 TB de almacenamiento")
     }
+
+if (procesador == 1 && memoria == 1 && disco == 1){
+    alert("El total a pagar es: $800")
+} else if (procesador == 1 && memoria == 1 && disco != 1){
+    alert("El total a pagar es: $1100")
+} else if (procesador == 1 && memoria == 2 && disco == 1){
+    alert("El total a pagar es: $900")
+} else if (procesador == 1 && memoria == 2 && disco != 1){
+    alert("El total a pagar es: $1200")
+} else if (procesador == 2 && memoria == 1 && disco == 1){
+    alert("El total a pagar es: $900")
+} else if (procesador == 2 && memoria == 1 && disco != 1){
+    alert("El total a pagar es: $1200")
+} else if (procesador == 2 && memoria == 2 && disco == 1){
+    alert("El total a pagar es: $1000")
+} else if (procesador == 2 && memoria == 2 && disco != 1){
+    alert("El total a pagar es: $1300")
+} else if (procesador == 2 && memoria == 3 && disco == 1){
+    alert("El total a pagar es: $1400")
+} else if (procesador == 2 && memoria == 3 && disco != 1){
+    alert("El total a pagar es: $1700")
+} else if (procesador == 3 && memoria == 1 && disco == 1){
+    alert("El total a pagar es: $1200")
+} else if(procesador == 3 && memoria == 1 && disco != 1){
+    alert("El total a pagar es: $1500")
+} else if(procesador == 3 && memoria == 2 && disco == 1){
+    alert("El total a pagar es: $1400")
+} else if(procesador == 3 && memoria == 2 && disco != 1){
+    alert("El total a pagar es: $1700")
+} else if(procesador == 3 && memoria == 3 && disco == 1){
+    alert("El total a pagar es: $2000")
+} else {
+    alert("El total a pagar es: $2300")
+}
