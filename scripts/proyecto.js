@@ -1,96 +1,70 @@
+//FUNCION
+iniciarApp()
+
+function iniciarApp (){
+    console.log("Iniciando Tienda Online")
+    segundaFuncion()
+}
+
+function segundaFuncion(){
+    console.log("Armando carrito")
+    carritoListo("A continuacion sus productos")
+}
+
+function carritoListo (preparar){
+    console.log("Calculando...Espere...")
+    console.log(`Carrito Listo: ${preparar}`)
+}
+
+//ARRAY CON METODOS
+let productos = ["Jabon Carbon", "Jabon Acuamarino", "Vela Frutal", "Vela Espiritual", "Sal Marina", "Sal Himalaya"]
+productos.push("Sal Efervecente")
+
+//LOGIN
 let login = prompt(`Ingrese su nombre para continuar`)
 let usuario = ""
 
 while (login != " " && login != "") {
-    usuario += login + " "
-    login = prompt (`Ingrese su apellido para continuar y de ENTER al finalizar`)
+    usuario += login
+    login = prompt (`Presione ENTER al finalizar`)
 }
 alert(`Bienvenido a nuestra tienda ${usuario}`)
 
-alert("Elija las opciones adecuadas para su PC")
+alert("Armamos un carrito navideño de " + productos.length + " productos nuevos para vos!")
 
-    let procesador = prompt(`Elija una opción:
-1) i5
-2) i7
-3) i9
-`)
+//CARRITO NAVIDEÑO
+const carrito = [
+    {nombre: "Jabon Carbon", componentes: "Carbon Activado y escencias mentoladas" ,precio: 250},
+    {nombre: "Jabon Acuamarino", componentes: "Algas y sales marinas" ,precio: 285},
+    {nombre: "Vela Frutal", componentes: "Cera aromatizada con distintas frutas" ,precio: 525},
+    {nombre: "Vela Espiritual", componentes: "Cera purificada" ,precio: 370},
+    {nombre: "Sal Marina", componentes: "Sal purificada extraída del mediterraneo" ,precio: 650},
+    {nombre: "Sal Himalaya", componentes: "Sal extraída del monte Himalaya" ,precio: 720},
+    {nombre: "Sal efervecente", componentes: "Sal a base de bicarbonato" ,precio: 370},
+]
 
-    switch (procesador) {
-        case "1":
-            alert("Elegiste un procesador i5")
-            break
+carrito.forEach((producto) => {
+    console.log(producto.nombre);
+    console.log(producto.componentes);
+    console.log(producto.precio);
+})
 
-        case "2":
-            alert("Elegiste un procesador i7")
-            break
+carrito.find((producto) => producto.nombre.includes("Jabon"));
+console.log(carrito)
 
-        default:
-            alert("Elegiste un procesador i9")
-            break
-    }
+let total = carrito.reduce((accum, p) => {
+    return accum + p.precio
+}, 0)
 
-    let memoria = prompt(`Elija una opción:
-1) 8 RAM
-2) 16 RAM
-3) 32 RAM
-`)
+alert("Total del carrito navideño: $" + total)
 
-    switch (memoria) {
-        case "1":
-            alert("Elegiste 8 RAM de memoria")
-            break
+let descuento = prompt("Ingrese DESCUENTO para obtener un beneficio")
 
-        case "2":
-            alert("Elegiste 16 RAM de memoria")
-            break
-
-        default:
-            alert("Elegiste 32 RAM de memoria")
-            break
-    }
-
-    let disco = prompt(`Elija una opción:
-1) No agrandar disco
-2) Agrandar disco
-`)
-
-
-    if (disco == 1) {
-        alert("Elegiste 500 GB de almacenamiento")
-    } else {
-        alert("Elegiste 1 TB de almacenamiento")
-    }
-
-if (procesador == 1 && memoria == 1 && disco == 1){
-    alert("El total a pagar es: $800")
-} else if (procesador == 1 && memoria == 1 && disco != 1){
-    alert("El total a pagar es: $1100")
-} else if (procesador == 1 && memoria == 2 && disco == 1){
-    alert("El total a pagar es: $900")
-} else if (procesador == 1 && memoria == 2 && disco != 1){
-    alert("El total a pagar es: $1200")
-} else if (procesador == 2 && memoria == 1 && disco == 1){
-    alert("El total a pagar es: $900")
-} else if (procesador == 2 && memoria == 1 && disco != 1){
-    alert("El total a pagar es: $1200")
-} else if (procesador == 2 && memoria == 2 && disco == 1){
-    alert("El total a pagar es: $1000")
-} else if (procesador == 2 && memoria == 2 && disco != 1){
-    alert("El total a pagar es: $1300")
-} else if (procesador == 2 && memoria == 3 && disco == 1){
-    alert("El total a pagar es: $1400")
-} else if (procesador == 2 && memoria == 3 && disco != 1){
-    alert("El total a pagar es: $1700")
-} else if (procesador == 3 && memoria == 1 && disco == 1){
-    alert("El total a pagar es: $1200")
-} else if(procesador == 3 && memoria == 1 && disco != 1){
-    alert("El total a pagar es: $1500")
-} else if(procesador == 3 && memoria == 2 && disco == 1){
-    alert("El total a pagar es: $1400")
-} else if(procesador == 3 && memoria == 2 && disco != 1){
-    alert("El total a pagar es: $1700")
-} else if(procesador == 3 && memoria == 3 && disco == 1){
-    alert("El total a pagar es: $2000")
+//DESCUENTO
+if (total >= 3000 && descuento === "descuento" || descuento === "DESCUENTO"){
+    alert("Abonando en efectivo tenes un 10% de descuento")
 } else {
-    alert("El total a pagar es: $2300")
+    alert("Debes superar los 3000 para tener un beneficio")
 }
+                            
+                           
